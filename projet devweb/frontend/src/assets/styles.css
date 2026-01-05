@@ -1,0 +1,1074 @@
+/* ========================================
+   VARIABLES CSS - Couleurs et paramètres
+   ======================================== */
+:root {
+    --primary-color: #4F46E5;
+    --primary-dark: #4338CA;
+    --secondary-color: #10B981;
+    --secondary-dark: #059669;
+    --danger-color: #EF4444;
+    --warning-color: #F59E0B;
+    --success-color: #10B981;
+    --text-dark: #1F2937;
+    --text-light: #6B7280;
+    --bg-light: #F9FAFB;
+    --bg-white: #FFFFFF;
+    --border-color: #E5E7EB;
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* ========================================
+   RESET ET STYLES DE BASE
+   ======================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--bg-light);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+ul {
+    list-style: none;
+}
+
+/* ========================================
+   HEADER - Navigation
+   ======================================== */
+header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    box-shadow: var(--shadow-md);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav h1 {
+    color: var(--bg-white);
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+nav ul {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+nav ul li a,
+nav > a {
+    color: var(--bg-white);
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover,
+nav > a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.btn-deconnexion {
+    background-color: rgba(239, 68, 68, 0.9);
+    padding: 0.5rem 1.5rem !important;
+    border-radius: 25px !important;
+    font-weight: 600 !important;
+}
+
+.btn-deconnexion:hover {
+    background-color: rgba(239, 68, 68, 1);
+    transform: translateY(-2px);
+}
+
+/* ========================================
+   MAIN - Conteneur principal
+   ======================================== */
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    flex: 1;
+    width: 100%;
+}
+
+/* ========================================
+   SECTION HERO - Bannière principale (PAGE ACCUEIL)
+   ======================================== */
+.hero {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: var(--bg-white);
+    text-align: center;
+    padding: 5rem 2rem;
+    border-radius: 20px;
+    margin-bottom: 4rem;
+    box-shadow: var(--shadow-xl);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.hero h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.hero p {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+    position: relative;
+    z-index: 1;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+}
+
+/* ========================================
+   BOUTONS - Styles généraux
+   ======================================== */
+.btn-primary, .btn-secondary {
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow-lg);
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--bg-white);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-xl);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary-color);
+    color: var(--bg-white);
+    transform: translateY(-3px);
+}
+
+/* Boutons pour les actions dans les cartes */
+.btn-ajouter-panier, .btn-voir-details, .btn-commander,
+.btn-modifier, .btn-supprimer, .btn-accepter, .btn-refuser, 
+.btn-details, .btn-parcourir, .btn-voir-commande, .btn-recherche {
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-ajouter-panier, .btn-accepter, .btn-commander {
+    background-color: var(--success-color);
+    color: var(--bg-white);
+}
+
+.btn-ajouter-panier:hover, .btn-accepter:hover, .btn-commander:hover {
+    background-color: var(--secondary-dark);
+    transform: translateY(-2px);
+}
+
+.btn-voir-details, .btn-details, .btn-parcourir, .btn-voir-commande {
+    background-color: var(--primary-color);
+    color: var(--bg-white);
+}
+
+.btn-voir-details:hover, .btn-details:hover, .btn-parcourir:hover, .btn-voir-commande:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+.btn-modifier {
+    background-color: var(--warning-color);
+    color: var(--bg-white);
+}
+
+.btn-modifier:hover {
+    background-color: #D97706;
+    transform: translateY(-2px);
+}
+
+.btn-supprimer, .btn-refuser {
+    background-color: var(--danger-color);
+    color: var(--bg-white);
+}
+
+.btn-supprimer:hover, .btn-refuser:hover {
+    background-color: #DC2626;
+    transform: translateY(-2px);
+}
+
+.btn-recherche {
+    background-color: var(--primary-color);
+    color: var(--bg-white);
+    padding: 0.8rem 2rem;
+}
+
+.btn-recherche:hover {
+    background-color: var(--primary-dark);
+}
+
+/* ========================================
+   FORMULAIRES - Styles généraux
+   ======================================== */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"],
+.form-group input[type="tel"],
+.form-group input[type="number"],
+.form-group input[type="file"],
+.form-group select,
+.form-group textarea,
+.input-recherche {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background-color: var(--bg-white);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus,
+.input-recherche:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.form-group small {
+    display: block;
+    margin-top: 0.3rem;
+    color: var(--text-light);
+    font-size: 0.85rem;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: auto;
+}
+
+.checkbox-group label {
+    margin-bottom: 0;
+    font-weight: 400;
+}
+
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+/* ========================================
+   PAGES CONNEXION & INSCRIPTION
+   ======================================== */
+.connexion-container,
+.inscription-container {
+    max-width: 500px;
+    margin: 3rem auto;
+    background: var(--bg-white);
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: var(--shadow-xl);
+}
+
+.connexion-container h2,
+.inscription-container h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: var(--primary-color);
+    font-size: 2rem;
+}
+
+.separateur {
+    text-align: center;
+    margin: 2rem 0;
+    color: var(--text-light);
+}
+
+.lien-mot-de-passe-oublie {
+    color: var(--primary-color);
+    font-size: 0.9rem;
+}
+
+.lien-mot-de-passe-oublie:hover {
+    text-decoration: underline;
+}
+
+/* ========================================
+   DASHBOARD - En-tête
+   ======================================== */
+.dashboard-header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    color: var(--bg-white);
+    padding: 3rem 2rem;
+    border-radius: 16px;
+    margin-bottom: 3rem;
+    text-align: center;
+    box-shadow: var(--shadow-lg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.dashboard-header h2 {
+    font-size: 2rem;
+    margin: 0;
+}
+
+.dashboard-header p {
+    margin: 0.5rem 0 0 0;
+}
+
+/* ========================================
+   RECHERCHE ET FILTRES
+   ======================================== */
+.recherche {
+    background: var(--bg-white);
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-md);
+}
+
+#form-recherche {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.input-recherche {
+    flex: 1;
+}
+
+.filtres {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.filtres label {
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.filtres select {
+    padding: 0.8rem 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: var(--bg-white);
+    cursor: pointer;
+}
+
+/* ========================================
+   SECTIONS DE CONTENU
+   ======================================== */
+.produits-section,
+.panier-section,
+.commandes-section,
+.statistiques-client,
+.mes-articles,
+.statistiques-commercant,
+.graphique-section,
+.avantages,
+.categories,
+.statistiques {
+    margin-bottom: 4rem;
+}
+
+.produits-section h3,
+.panier-section h3,
+.commandes-section h3,
+.statistiques-client h3,
+.mes-articles h3,
+.statistiques-commercant h3,
+.graphique-section h3,
+.avantages h3,
+.categories h3,
+.statistiques h3 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: var(--text-dark);
+}
+
+/* ========================================
+   GRILLES DE PRODUITS/ARTICLES
+   ======================================== */
+.produits-grid,
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.produit-card,
+.article-card {
+    background: var(--bg-white);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+    border: 2px solid var(--border-color);
+}
+
+.produit-card:hover,
+.article-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--primary-color);
+}
+
+.produit-image,
+.article-image {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(135deg, var(--bg-light) 0%, #E0E7FF 100%);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.produit-card h4,
+.article-card h4 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+}
+
+.produit-card .description,
+.article-card .description {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.produit-card .prix,
+.article-card .prix {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.produit-card .vendeur,
+.article-card .stock,
+.article-card .categorie {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+}
+
+.produit-actions,
+.article-actions {
+    display: flex;
+    gap: 0.8rem;
+    margin-top: 1rem;
+}
+
+.aucun-produit {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 3rem;
+    color: var(--text-light);
+}
+
+/* ========================================
+   PANIER
+   ======================================== */
+.panier-contenu {
+    background: var(--bg-white);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+}
+
+.panier-vide {
+    text-align: center;
+    color: var(--text-light);
+    padding: 2rem;
+}
+
+.panier-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    gap: 1rem;
+}
+
+.panier-item:last-child {
+    border-bottom: none;
+}
+
+.item-nom {
+    flex: 1;
+    font-weight: 600;
+}
+
+.item-prix {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.panier-total {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 2px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.panier-total p {
+    font-size: 1.5rem;
+}
+
+/* ========================================
+   COMMANDES
+   ======================================== */
+.commandes-liste {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.commande-card {
+    background: var(--bg-white);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: var(--shadow-md);
+    border: 2px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.commande-card:hover {
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-lg);
+}
+
+.commande-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.commande-numero {
+    font-weight: 700;
+    color: var(--text-dark);
+    font-size: 1.1rem;
+}
+
+.commande-date {
+    color: var(--text-light);
+}
+
+.commande-statut {
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+.statut-en-cours {
+    background-color: #FEF3C7;
+    color: #92400E;
+}
+
+.statut-nouvelle {
+    background-color: #DBEAFE;
+    color: #1E40AF;
+}
+
+.statut-acceptee {
+    background-color: #D1FAE5;
+    color: #065F46;
+}
+
+.commande-details {
+    margin: 1rem 0;
+    color: var(--text-dark);
+}
+
+.commande-details p {
+    margin-bottom: 0.5rem;
+}
+
+.commande-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.aucune-commande {
+    text-align: center;
+    padding: 3rem;
+    background: var(--bg-white);
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+}
+
+.aucune-commande p {
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+}
+
+/* ========================================
+   STATISTIQUES
+   ======================================== */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.stat-card,
+.stat {
+    text-align: center;
+    background: var(--bg-white);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+    border: 2px solid var(--border-color);
+}
+
+.stat-card:hover,
+.stat:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-color);
+}
+
+.stat-card strong,
+.stat strong {
+    display: block;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.stat-card p,
+.stat p {
+    color: var(--text-light);
+    font-size: 1rem;
+}
+
+/* ========================================
+   FORMULAIRE D'AJOUT D'ARTICLE (VENDEUR)
+   ======================================== */
+#formulaire-article {
+    background: var(--bg-white);
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-lg);
+    margin-bottom: 3rem;
+    border: 2px solid var(--primary-color);
+}
+
+#formulaire-article h3 {
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+}
+
+/* ========================================
+   GRAPHIQUE
+   ======================================== */
+.graphique-placeholder {
+    background: var(--bg-white);
+    padding: 3rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    text-align: center;
+    min-height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.graphique-placeholder p {
+    color: var(--text-light);
+    font-size: 1.1rem;
+}
+
+/* ========================================
+   SECTION AVANTAGES (PAGE ACCUEIL)
+   ======================================== */
+.avantages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.avantage-card {
+    background: var(--bg-white);
+    padding: 2.5rem;
+    border-radius: 16px;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+    border: 1px solid var(--border-color);
+}
+
+.avantage-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-xl);
+    border-color: var(--primary-color);
+}
+
+.avantage-card h4 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.avantage-card h4::before {
+    content: '✓';
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 30px;
+    font-weight: bold;
+}
+
+.avantage-card ul li {
+    padding: 0.75rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    color: var(--text-light);
+}
+
+.avantage-card ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--secondary-color);
+    font-weight: bold;
+}
+
+/* ========================================
+   SECTION CATÉGORIES (PAGE ACCUEIL)
+   ======================================== */
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.categorie {
+    background: linear-gradient(135deg, var(--bg-white) 0%, var(--bg-light) 100%);
+    padding: 2rem 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.1rem;
+    box-shadow: var(--shadow-sm);
+    border: 2px solid var(--border-color);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.categorie:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-color);
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    color: var(--bg-white);
+}
+
+/* ========================================
+   SECTION STATISTIQUES (PAGE ACCUEIL)
+   ======================================== */
+.statistiques {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    padding: 4rem 2rem;
+    border-radius: 20px;
+    margin-bottom: 4rem;
+    box-shadow: var(--shadow-xl);
+}
+
+.statistiques h3 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--bg-white);
+}
+
+.statistiques .stats-grid .stat {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    color: var(--bg-white);
+    border: none;
+}
+
+.statistiques .stat:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.statistiques .stat strong {
+    color: var(--bg-white);
+}
+
+.statistiques .stat p {
+    color: var(--bg-white);
+    opacity: 0.95;
+}
+
+/* ========================================
+   FOOTER - Pied de page
+   ======================================== */
+footer {
+    background: linear-gradient(135deg, var(--text-dark) 0%, #111827 100%);
+    color: var(--bg-white);
+    padding: 3rem 2rem;
+    text-align: center;
+    margin-top: auto;
+}
+
+footer p {
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+}
+
+footer ul {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+footer ul li a {
+    color: var(--bg-light);
+    transition: all 0.3s ease;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+}
+
+footer ul li a:hover {
+    color: var(--bg-white);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ========================================
+   RESPONSIVE - Tablette et Mobile
+   ======================================== */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    
+    nav h1 {
+        font-size: 1.5rem;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+        width: 100%;
+    }
+    
+    nav ul li {
+        width: 100%;
+    }
+    
+    nav ul li a {
+        display: block;
+        text-align: center;
+    }
+    
+    .hero h2 {
+        font-size: 2rem;
+    }
+    
+    .hero p {
+        font-size: 1.1rem;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn-primary, .btn-secondary {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .avantages h3, .categories h3, .statistiques h3,
+    .produits-section h3, .commandes-section h3 {
+        font-size: 1.8rem;
+    }
+    
+    .avantages-grid, .categories-grid, .produits-grid, .articles-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    main {
+        padding: 1rem;
+    }
+    
+    .dashboard-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+    
+    #form-recherche {
+        flex-direction: column;
+    }
+    
+    .filtres {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .filtres select {
+        width: 100%;
+    }
+    
+    .commande-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .commande-actions, .produit-actions, .article-actions {
+        flex-direction: column;
+    }
+    
+    .commande-actions button,
+    .produit-actions button,
+    .article-actions button {
+        width: 100%;
+    }
+    
+    .panier-total {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .panier-total button {
+        width: 100%;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+  }
